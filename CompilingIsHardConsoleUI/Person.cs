@@ -16,9 +16,13 @@ namespace CompilingIsHardConsoleUI
         public string PhoneNumber { get; set; }
         public string Name { get; set; }
 
-        public void SayName()
+        private int numberOfLegs = 0;
+        public int NumberOfLegs { get; init; } = numberOfLegs;
+
+        public static void SayName()
         {
             Console.WriteLine($"My name is {this.Name}");
         }
+
     }
 }

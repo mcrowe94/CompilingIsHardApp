@@ -7,7 +7,8 @@ namespace CompilingIsHardConsoleUI
     internal class Program
     {
         static int Main(string[] args)
-        {            
+        {
+            int exitCode;
             Console.WriteLine("Hello!");
             Console.WriteLine("Please give me a number");
             userNumber = Console.ReadLine();
@@ -17,17 +18,18 @@ namespace CompilingIsHardConsoleUI
             Console.WriteLine("{userNumber} / {userNumber} = {answer}");
             Console.WriteLine("Please give me your age!");
             const int USER_AGE = Console.ReadLine();
-            if (USER_AGE == 21)
+            if (USER_AGE = 21)
             {
                 Console.WriteLine("You may drink alcohol!");
             }
             Console.WriteLine("Give me the name of everyone that lives in your house separated by commas");
             string[] names = Console.ReadLine().Split('\u002C');
             List<Person> people = new List<Person>();
-            foreach (Person name in name)
+            foreach (Person name as name)
             {
                 Person p = new Person();
                 p.Name == name;
+                p.SayName();
                 Console.WriteLine("What is {name}'s date of birth?");
                 p.Dob = Console.ReadLine();
                 people.Add(p);
@@ -72,24 +74,37 @@ namespace CompilingIsHardConsoleUI
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                return exitCode;
                 
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
             }
             finally
             {
                 Console.WriteLine("Henlooooo");
             }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine(e.Message);                
-            }
+            
+            var something = DoSomethingElse();
 
-            return -1;
+            return exitCode;
         }
 
-        void DoSomething()
+        private void DoSomething()
         {
             Console.WriteLine("I am doing something!");
             return 15;
         }
+
+        private string DoSomethingElse()
+        {
+            Console.WriteLine("I am doing something else!");            
+        }
+        static void Main()
+        {
+            Console.WriteLine("Blah Blah Blah");
+        }
+
     }
 }
