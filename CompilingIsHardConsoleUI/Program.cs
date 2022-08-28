@@ -4,67 +4,92 @@ using System.Threading.Tasks;
 
 namespace CompilingIsHardConsoleUI
 {
-    internal class Program
+    public class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
             int exitCode;
             Console.WriteLine("Hello!");
             Console.WriteLine("Please give me a number");
-            userNumber = Console.ReadLine();
+
+            int firstNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Please give me another number");
-            userNumber = Console.ReadLine();
-            answer = userNumber / userNumber;
-            Console.WriteLine("{userNumber} / {userNumber} = {answer}");
+            int secondNumber = int.Parse(Console.ReadLine());
+            int answer = firstNumber / secondNumber;
+            Console.WriteLine($"{firstNumber} / {secondNumber} = {answer}");
+
             Console.WriteLine("Please give me your age!");
-            const int USER_AGE = Console.ReadLine();
-            if (USER_AGE = 21)
+            int userAge = int.Parse(Console.ReadLine());
+            if (userAge >= 21)
             {
                 Console.WriteLine("You may drink alcohol!");
             }
+
+
+
             Console.WriteLine("Give me the name of everyone that lives in your house separated by commas");
             string[] names = Console.ReadLine().Split('\u002C');
             List<Person> people = new List<Person>();
-            foreach (Person name as name)
+            foreach (var name in names)
             {
                 Person p = new Person();
-                p.Name == name;
-                p.SayName();
-                Console.WriteLine("What is {name}'s date of birth?");
-                p.Dob = Console.ReadLine();
+                p.Name = name;
+                Person.SayName(name);
+                Console.WriteLine($"What is {name}'s date of birth?");
+                p.Dob = DateTime.Parse(Console.ReadLine());
                 people.Add(p);
             }
-            for (i = 0; i < 100; i++)
+
+
+
+            for (int i = 0; i < 100; i++)
             {
                 Console.WriteLine(i);
             }
-            var something = DoSomething();
+
+
+
+            DoSomething();
+
+
             Console.WriteLine("What is your favorite color?");
-            switch (Console.ReadLine().ToUpper())
+            switch (Console.ReadLine().ToLower())
             {
                 case "red":
                     Console.WriteLine("Red is great!");
-                case: "blue":
+                    break;
+
+                case "blue":
                     Console.WriteLine("Blue is awesome!");
-                case: "yellow":
+                    break;
+
+                case "yellow":
                     Console.WriteLine("Yellow reminds me of the sun");
-                case: "orange":
+                    break;
+
+                case "orange":
                     Console.WriteLine("I like orange juice!");
-                case: "blue":
-                    Console.WriteLine("Blue is awesome!");
+                    break;
+
                 default:
-                    Console.WriteLine("Never heard of that color, what does it look like?");                    
+                    Console.WriteLine("Never heard of that color, what does it look like?");
+                    break;
             }
+
+
+
             try
             {
                 Random random = new Random();
-                if (random.Next(1,100) % 2 = 0)
+                if (random.Next(1,100) % 2 == 0)
                 {
-                    throw new NullReferenceException();
+                    //throw new NullReferenceException();
+                    Console.WriteLine("World is bad");
                 }
-                else (if random.Next(1, 100) % 3 = 0)
+                else if (random.Next(1, 100) % 3 == 0)
                 {
-                    throw new Exception();
+                    //throw new Exception();
+                    Console.WriteLine("World is okay");
                 }
                 else
                 {
@@ -74,37 +99,39 @@ namespace CompilingIsHardConsoleUI
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return exitCode;
+                //return exitCode;
                 
             }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //catch (NullReferenceException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
             finally
             {
                 Console.WriteLine("Henlooooo");
             }
             
-            var something = DoSomethingElse();
+            DoSomethingElse();
 
-            return exitCode;
+            //return exitCode;
         }
 
-        private void DoSomething()
+
+
+        private static void DoSomething()
         {
             Console.WriteLine("I am doing something!");
-            return 15;
+           //return 15;
         }
 
-        private string DoSomethingElse()
+        private static void DoSomethingElse()
         {
             Console.WriteLine("I am doing something else!");            
         }
-        static void Main()
-        {
-            Console.WriteLine("Blah Blah Blah");
-        }
+        //private static void Main()
+        //{
+        //    Console.WriteLine("Blah Blah Blah");
+        //}
 
     }
 }
